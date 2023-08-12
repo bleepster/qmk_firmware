@@ -6,4 +6,6 @@
 
 #pragma once
 
-#define EE_HANDS
+#define MASTER_RIGHT
+#define POINTING_DEVICE_ROTATION_90
+
