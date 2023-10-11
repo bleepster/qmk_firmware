@@ -34,3 +34,7 @@ void housekeeping_task_user(void) {
   }
 }
 
+void pointing_device_init_user(void) {
+  set_auto_mouse_layer(4);
+  set_auto_mouse_enable(true);
+}
