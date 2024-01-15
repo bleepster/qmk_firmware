@@ -48,21 +48,21 @@ float scroll_accumulated_v = 0;
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT(
     KC_ESC, KC_W,  KC_E,  KC_R, LT_3T,        RT_3Y, KC_U, KC_I,  KC_O,    KC_BSPC,
-    LH_1,   LH_2,  LH_3,  LH_4, LT_2G,        RT_2H, RH_1, RH_2,  RH_3,    RH_4,
-    KC_Z,   KC_X, LT_4C,  KC_V,  KC_B,        KC_N,  KC_M, RT_4Q, KC_COMM, KC_DOT,
+      LH_1, LH_2,  LH_3,  LH_4, LT_2G,        RT_2H, RH_1, RH_2,  RH_3,    RH_4,
+      KC_Z, KC_X, LT_4C,  KC_V,  KC_B,        KC_N,  KC_M, RT_4Q, KC_COMM, KC_DOT,
                         LH_5, LT_1ENT,        RT_1SPC, RH_5
   ),
   [1] = LAYOUT(
-    KC_PLUS, KC_PIPE, KC_QUES, KC_UNDS, KC_DQUO,        KC_EXLM, KC_AT,   KC_HASH,  KC_DLR, KC_COLN,
-    KC_EQL,  KC_BSLS, KC_SLSH, KC_MINS, KC_QUOT,        KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_SCLN,
+    KC_PLUS, KC_PIPE, KC_QUES, KC_UNDS, KC_DQUO,        KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_COLN,
+     KC_EQL, KC_BSLS, KC_SLSH, KC_MINS, KC_QUOT,        KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_SCLN,
     KC_TILD, KC_LPRN, KC_LCBR, KC_LBRC,   KC_LT,        KC_GT,   KC_RBRC, KC_RCBR, KC_RPRN,  KC_GRV,
-                               KC_TRNS, KC_TRNS,        KC_TRNS, KC_TRNS
+                               KC_TRNS, KC_TRNS,        LCTL(KC_LSFT), LALT(KC_LSFT)
   ),
   [2] = LAYOUT(
     KC_NO, KC_7, KC_8, KC_9, KC_NO,        KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_CAPS,
     KC_NO, KC_4, KC_5, KC_6, KC_NO,        KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_TRNS,
      KC_0, KC_1, KC_2, KC_3, KC_NO,        KC_NO,   KC_NO,   KC_NO,   KC_TRNS, KC_NO,
-      LGUI(KC_LSFT), LGUI(KC_LCTL),        KC_TRNS, KC_TRNS
+      LGUI(KC_LSFT), LGUI(KC_LCTL),        LCTL(KC_LSFT), LALT(KC_LSFT)
   ),
   [3] = LAYOUT(
     KC_F12, KC_F7, KC_F8, KC_F9, KC_NO,        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
@@ -73,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [4] = LAYOUT(
     QK_BOOT,   KC_NO,   KC_NO,   KC_NO, KC_NO,        KC_NO, KC_NO, KC_NO, KC_NO,       QK_BOOT,
     KC_LGUI, KC_LSFT, KC_LCTL, KC_LALT, KC_NO,        KC_NO, KC_NO, KC_NO, KC_NO,       KC_NO,
-    KC_NO,     KC_NO,   KC_NO,   KC_NO, KC_NO,        KC_NO, KC_NO, KC_NO, DRAG_SCROLL, KC_NO,
+      KC_NO,   KC_NO,   KC_NO,   KC_NO, KC_NO,        KC_NO, KC_NO, KC_NO, DRAG_SCROLL, KC_NO,
                              KC_BTN2, KC_BTN1,        KC_NO, KC_NO
   )
 };
