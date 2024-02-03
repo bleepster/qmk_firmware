@@ -4,32 +4,51 @@
 
 // mod tap, layer tap definitions - start
 //
+
 // left half mod tap
 #define LH_1 MT(MOD_LGUI, KC_A)
 #define LH_2 MT(MOD_LSFT, KC_S)
 #define LH_3 MT(MOD_LCTL, KC_D)
 #define LH_4 MT(MOD_LALT, KC_F)
 #define LH_5 HYPR_T(KC_TAB)
+
 // right half mod tap
 #define RH_1 MT(MOD_RALT, KC_J)
 #define RH_2 MT(MOD_RCTL, KC_K)
 #define RH_3 MT(MOD_RSFT, KC_L)
 #define RH_4 MT(MOD_LGUI, KC_P)
 #define RH_5 MEH_T(KC_DEL)
-// left half - layer 3 tap and layer 4 tap
+
+// left half - layer 3 tap
 #define LT_3T LT(3, KC_T)
-#define LT_4C LT(4, KC_C)
-// right half - layer 3 tap and layer 4 tap
+
+// right half - layer 3 tap
 #define RT_3Y LT(3, KC_Y)
-#define RT_4Q LT(4, KC_Q)
+
 // left half - layer 2 tap
 #define LT_2G LT(2, KC_G)
+
 // right half - layer 2 tap
 #define RT_2H LT(2, KC_H)
+
 // left half - layer 1 tap
 #define LT_1ENT LT(1, KC_ENT)
+
 // right half - layer 1 tap
 #define RT_1SPC LT(1, KC_SPC)
+
+// left control + left shift
+#define CTRLSHFT LCTL(KC_LSFT)
+
+// left OS + left shift
+#define OSSHFT LGUI(KC_LSFT)
+
+// left alt + left shift
+#define ALTSHFT LALT(KC_LSFT)
+
+// left OS + left ctrl
+#define OSCTRL LGUI(KC_LCTL)
+
 // mod tap, layer tap defininitions - end
 
 #define SCROLL_DIVISOR_H 8.0
@@ -47,22 +66,22 @@ float scroll_accumulated_v = 0;
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT(
-    KC_ESC, KC_W,  KC_E,  KC_R, LT_3T,        RT_3Y, KC_U, KC_I,  KC_O,    KC_BSPC,
-      LH_1, LH_2,  LH_3,  LH_4, LT_2G,        RT_2H, RH_1, RH_2,  RH_3,    RH_4,
-      KC_Z, KC_X, LT_4C,  KC_V,  KC_B,        KC_N,  KC_M, RT_4Q, KC_COMM, KC_DOT,
-                        LH_5, LT_1ENT,        RT_1SPC, RH_5
+    MO(4), KC_W,  KC_E,  KC_R, LT_3T,        RT_3Y, KC_U, KC_I,  KC_O,    MO(4),
+     LH_1, LH_2,  LH_3,  LH_4, LT_2G,        RT_2H, RH_1, RH_2,  RH_3,    RH_4,
+     KC_Z, KC_X,  KC_C,  KC_V,  KC_B,        KC_N,  KC_M, KC_Q, KC_COMM, KC_DOT,
+                       LH_5, LT_1ENT,        RT_1SPC, RH_5
   ),
   [1] = LAYOUT(
     KC_PLUS, KC_PIPE, KC_QUES, KC_UNDS, KC_DQUO,        KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_COLN,
      KC_EQL, KC_BSLS, KC_SLSH, KC_MINS, KC_QUOT,        KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_SCLN,
     KC_TILD, KC_LPRN, KC_LCBR, KC_LBRC,   KC_LT,        KC_GT,   KC_RBRC, KC_RCBR, KC_RPRN,  KC_GRV,
-                               KC_TRNS, KC_TRNS,        LCTL(KC_LSFT), LALT(KC_LSFT)
+                               KC_TRNS, KC_TRNS,        CTRLSHFT, ALTSHFT
   ),
   [2] = LAYOUT(
-    KC_NO, KC_7, KC_8, KC_9, KC_NO,        KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_CAPS,
-    KC_NO, KC_4, KC_5, KC_6, KC_NO,        KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_TRNS,
-     KC_0, KC_1, KC_2, KC_3, KC_NO,        KC_NO,   KC_NO,   KC_NO,   KC_TRNS, KC_NO,
-      LGUI(KC_LSFT), LGUI(KC_LCTL),        LCTL(KC_LSFT), LALT(KC_LSFT)
+    KC_NO, KC_7, KC_8, KC_9, KC_NO,        KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_NO,
+    KC_NO, KC_4, KC_5, KC_6, KC_NO,        KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_NO,
+     KC_0, KC_1, KC_2, KC_3, KC_NO,        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+                    OSSHFT, OSCTRL,        CTRLSHFT, ALTSHFT
   ),
   [3] = LAYOUT(
     KC_F12, KC_F7, KC_F8, KC_F9, KC_NO,        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
@@ -71,11 +90,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                       KC_TRNS, KC_TRNS,        KC_TRNS, KC_TRNS
   ),
   [4] = LAYOUT(
-    QK_BOOT,   KC_NO,   KC_NO,   KC_NO, KC_NO,        KC_NO, KC_NO, KC_NO, KC_NO,       QK_BOOT,
-    KC_LGUI, KC_LSFT, KC_LCTL, KC_LALT, KC_NO,        KC_NO, KC_NO, KC_NO, KC_NO,       KC_NO,
-      KC_NO,   KC_NO,   KC_NO,   KC_NO, KC_NO,        KC_NO, KC_NO, KC_NO, DRAG_SCROLL, KC_NO,
+    KC_TRNS,   KC_NO,   KC_NO,   KC_NO, KC_NO,        KC_NO, KC_NO, KC_NO,       KC_NO, KC_TRNS,
+    KC_LGUI, KC_LSFT, KC_LCTL, KC_LALT, KC_NO,        KC_NO, KC_NO, KC_NO,       KC_NO, KC_NO,
+    QK_BOOT,   KC_NO,   KC_NO,   KC_NO, KC_NO,        KC_NO, KC_NO, DRAG_SCROLL, KC_NO, QK_BOOT,
                              KC_BTN2, KC_BTN1,        KC_NO, KC_NO
   )
+};
+
+// combos
+const uint16_t PROGMEM combo_capslock[] = {KC_E, KC_R, COMBO_END};
+const uint16_t PROGMEM combo_backspace[] = {KC_I, KC_O, COMBO_END};
+const uint16_t PROGMEM combo_escape[] = {KC_W, KC_E, COMBO_END};
+
+combo_t key_combos[] = {
+    COMBO(combo_capslock, KC_CAPS),
+    COMBO(combo_backspace, KC_BSPC),
+    COMBO(combo_escape, KC_ESC)
 };
 
 // RGB for pimoroni module
