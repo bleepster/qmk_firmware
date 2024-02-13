@@ -5,51 +5,45 @@
 // mod tap, layer tap definitions - start
 //
 
-// left half mod tap (layer 1)
-#define LH1_1 MT(MOD_LGUI, KC_A)
-#define LH1_2 MT(MOD_LSFT, KC_S)
-#define LH1_3 MT(MOD_LCTL, KC_D)
-#define LH1_4 MT(MOD_LALT, KC_F)
+// left half mod tap (layer 0)
+#define LH0_1 MT(MOD_LGUI, KC_A)
+#define LH0_2 MT(MOD_LSFT, KC_S)
+#define LH0_3 MT(MOD_LCTL, KC_D)
+#define LH0_4 MT(MOD_LALT, KC_F)
 #define LH_5 HYPR_T(KC_TAB)
 
+// left half mod tap (layer 1)
+#define LH1_1 MT(MOD_LCTL, KC_EQL)
+
 // left half mod tap (layer 2)
-#define LH2_1 MT(MOD_LGUI, KC_EQL)
-#define LH2_2 MT(MOD_LSFT, KC_BSLS)
-#define LH2_3 MT(MOD_LCTL, KC_SLSH)
-#define LH2_4 MT(MOD_LALT, KC_MINS)
+#define LH2_1 MT(MOD_LSFT, KC_4)
+#define LH2_2 MT(MOD_LCTL, KC_5)
+#define LH2_3 MT(MOD_LALT, KC_6)
 
 // left half mod tap (layer 3)
-#define LH3_1 MT(MOD_LSFT, KC_4)
-#define LH3_2 MT(MOD_LCTL, KC_5)
-#define LH3_3 MT(MOD_LALT, KC_6)
+#define LH3_1 MT(MOD_LGUI, KC_F11)
+#define LH3_2 MT(MOD_LSFT, KC_F4)
+#define LH3_3 MT(MOD_LCTL, KC_F5)
+#define LH3_4 MT(MOD_LALT, KC_F6)
 
-// left half mod tap (layer 4)
-#define LH4_1 MT(MOD_LGUI, KC_F11)
-#define LH4_2 MT(MOD_LSFT, KC_F4)
-#define LH4_3 MT(MOD_LCTL, KC_F5)
-#define LH4_4 MT(MOD_LALT, KC_F6)
-
-// right half mod tap (layer 1)
-#define RH1_1 MT(MOD_RALT, KC_J)
-#define RH1_2 MT(MOD_RCTL, KC_K)
-#define RH1_3 MT(MOD_RSFT, KC_L)
-#define RH1_4 MT(MOD_LGUI, KC_P)
+// right half mod tap (layer 0)
+#define RH0_1 MT(MOD_RALT, KC_J)
+#define RH0_2 MT(MOD_RCTL, KC_K)
+#define RH0_3 MT(MOD_RSFT, KC_L)
+#define RH0_4 MT(MOD_RGUI, KC_P)
 #define RH_5 MEH_T(KC_DEL)
 
+// right half mod tap (layer 1)
+#define RH1_1 MT(MOD_LCTL, KC_SCLN)
+
 // right half mod tap (layer 2)
-#define RH2_1 MT(MOD_RALT, KC_CIRC)
-#define RH2_2 MT(MOD_RCTL, KC_AMPR)
-#define RH2_3 MT(MOD_RSFT, KC_ASTR)
-#define RH2_4 MT(MOD_LGUI, KC_SCLN)
+#define RH2_1 MT(MOD_RALT, KC_DOWN)
+#define RH2_2 MT(MOD_RCTL, KC_UP)
+#define RH2_3 MT(MOD_RSFT, KC_RIGHT)
 
 // right half mod tap (layer 3)
-#define RH3_1 MT(MOD_RALT, KC_DOWN)
-#define RH3_2 MT(MOD_RCTL, KC_UP)
-#define RH3_3 MT(MOD_RSFT, KC_RIGHT)
-
-// right half mod tap (layer 4)
-#define RH4_1 MT(MOD_RALT, KC_VOLD)
-#define RH4_2 MT(MOD_RCTL, KC_VOLU)
+#define RH3_1 MT(MOD_RALT, KC_VOLD)
+#define RH3_2 MT(MOD_RCTL, KC_VOLU)
 
 // left half - layer 3 tap
 #define LT_3T LT(3, KC_T)
@@ -99,25 +93,27 @@ float scroll_accumulated_v = 0;
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT(
     MO(4),  KC_W,   KC_E,   KC_R, LT_3T,        RT_3Y, KC_U,  KC_I,  KC_O,    MO(4),
-    LH1_1, LH1_2,  LH1_3,  LH1_4, LT_2G,        RT_2H, RH1_1, RH1_2, RH1_3,   RH1_4,
+    LH0_1, LH0_2,  LH0_3,  LH0_4, LT_2G,        RT_2H, RH0_1, RH0_2, RH0_3,   RH0_4,
      KC_Z,  KC_X,   KC_C,   KC_V,  KC_B,        KC_N,  KC_M,  KC_Q,  KC_COMM, KC_DOT,
                           LH_5, LT_1ENT,        RT_1SPC, RH_5
   ),
+
+
   [1] = LAYOUT(
     KC_PLUS, KC_PIPE, KC_QUES, KC_UNDS, KC_DQUO,        KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_COLN,
-      LH2_1,   LH2_2,   LH2_3,   LH2_4, KC_QUOT,        KC_PERC, RH2_1,   RH2_2,   RH2_3,   RH2_4,
+      LH1_1, KC_BSLS, KC_SLSH, KC_MINS, KC_QUOT,        KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, RH1_1,
     KC_TILD, KC_LPRN, KC_LCBR, KC_LBRC,   KC_LT,        KC_GT,   KC_RBRC, KC_RCBR, KC_RPRN, KC_GRV,
                                KC_TRNS, KC_TRNS,        CTRLSHFT, ALTSHFT
   ),
   [2] = LAYOUT(
       KC_NO,  KC_7,  KC_8,  KC_9, KC_NO,        KC_HOME, KC_PGDN, KC_PGUP, KC_END, KC_NO,
-    KC_LGUI, LH3_1, LH3_2, LH3_3, KC_NO,        KC_LEFT, RH3_1,   RH3_2,   RH3_3,  KC_RGUI,
+    KC_LGUI, LH2_1, LH2_2, LH2_3, KC_NO,        KC_LEFT, RH2_1,   RH2_2,   RH2_3,  KC_RGUI,
        KC_0,  KC_1,  KC_2,  KC_3, KC_NO,        KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_NO,
                          OSSHFT, OSCTRL,        CTRLSHFT, ALTSHFT
   ),
   [3] = LAYOUT(
     KC_F12, KC_F7, KC_F8, KC_F9, KC_NO,        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
-     LH4_1, LH4_2, LH4_3, LH4_4, KC_NO,        KC_MUTE, RH4_1,   RH4_2,   KC_RSFT, KC_RGUI,
+     LH3_1, LH3_2, LH3_3, LH3_4, KC_NO,        KC_MUTE, RH3_1,   RH3_2,   KC_RSFT, KC_RGUI,
     KC_F10, KC_F1, KC_F2, KC_F3, KC_NO,        KC_MPLY, KC_MRWD, KC_MFFD, KC_MSTP, KC_NO,
                       KC_TRNS, KC_TRNS,        KC_TRNS, KC_TRNS
   ),
